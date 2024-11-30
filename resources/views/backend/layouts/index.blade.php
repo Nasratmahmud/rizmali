@@ -1,313 +1,75 @@
 @extends('backend.app')
 
-@section('title','Dashboard')
+@section('title','Package')
 
 @section('content')
-<div class="container-fluid">
-    <div class="page-title">
+
+  <div class="container-fluid">
+      <div class="page-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Dashboard</h3>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+              {{-- <li class="breadcrumb-item active">Add Package</li> --}}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid dashboard-default">
       <div class="row">
-        <div class="col-sm-6">
-          <h3>
-             Kanban Board</h3>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item"> Apps</li>
-            <li class="breadcrumb-item active"> Kanban Board</li>
-          </ol>
+
+        <div class="col-xxl-12 col-xl-12 col-lg-12 dash-45 box-col-40">
+          <div class="card profile-greeting">               
+            <div class="card-body">
+              <div class="d-sm-flex d-block justify-content-between">
+                <div class="flex-grow-1"> 
+                  <div class="weather d-flex">
+                    <h2 class="f-w-400"> <span>28<sup><i class="fa fa-circle-o f-10"></i></sup>C </span></h2>
+                    <div class="span sun-bg"><i class="icofont icofont-sun font-primary"></i></div>
+                  </div><span class="font-primary f-w-700">Sunny Day</span>
+                  <p>Beautiful Sunny Day Walk</p>
+                </div>
+                <div class="badge-group">
+                  <div class="badge badge-light-primary f-12"><i class="fa fa-clock-o"></i><span id="txt"></span></div>
+                </div>
+              </div>
+              <div class="greeting-user"> 
+                <div class="profile-vector">
+                  <ul class="dots-images">
+                    <li class="dot-small bg-info dot-1"></li>
+                    <li class="dot-medium bg-primary dot-2"></li>
+                    <li class="dot-medium bg-info dot-3"></li>
+                    <li class="semi-medium bg-primary dot-4"></li>
+                    <li class="dot-small bg-info dot-5"></li>
+                    <li class="dot-big bg-info dot-6"></li>
+                    <li class="dot-small bg-primary dot-7"></li>
+                    <li class="semi-medium bg-primary dot-8"></li>
+                    <li class="dot-big bg-info dot-9"></li>
+                  </ul><img class="img-fluid" src="{{asset('/backend/assets/images/dashboard/default/profile.png')}}" alt="">
+                  <ul class="vector-image"> 
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon1.png')}}" alt=""></li>
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon3.png')}}" alt=""></li>
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon4.png')}}" alt=""></li>
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon5.png')}}" alt=""></li>
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon6.png')}}" alt=""></li>
+                    <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon7.png')}}" alt=""></li>
+                  </ul>
+                </div>
+                <h4><a href="user-profile.html"><span>Welcome Back</span> John  </a><span class="right-circle"><i class="fa fa-check-circle font-primary f-14 middle"></i></span></h4>
+                {{-- <div><span class="badge badge-primary">Your 5</span><span class="font-primary f-12 middle f-w-500 ms-2"> Task Is Pending</span></div> --}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Container-fluid starts-->
-  <div class="container-fluid jkanban-container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header pb-0">
-            <h4>Default Kanban</h4>
-          </div>
-          <div class="card-body pb-0">                  
-            <div id="demo1"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card custom-board">
-          <div class="card-header pb-0">
-            <div class="d-flex"> 
-              <div class="flex-grow-1"> 
-                <h4>Custom Board</h4>
-              </div>
-            </div>
-            <p class="mb-0">| colors, gutter, click on board&apos;s item and restricting which boards to drag items to</p>
-          </div>
-          <div class="card-body pb-0">                   
-            <div id="demo2"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card api-board">
-          <div class="card-header pb-0">
-            <h4>API</h4>
-            <p class="mb-0">add item, add board, delete board:                    </p>
-          </div>
-          <div class="card-body">                    
-            <div id="demo3"></div>
-            <button class="btn btn-primary" id="addDefault">Add &quot;Default&quot; board</button>
-            <button class="btn btn-success" id="addToDo">Add element in &quot;To Do&quot; Board</button>
-            <button class="btn btn-danger" id="removeBoard">Remove &quot;Done&quot; Board</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card note p-20">jKanban is Pure agnostic Javascript plugin for Kanban boards for more options please refer <a href="http://www.riccardotartaglia.it/jkanban/" target="_blank">jkanban Official site  </a>And <a href="https://github.com/riktar/jkanban" target="_blank">github link</a></div>
-      </div>
-    </div>
-  </div>
-    {{-- <div class="header-logo-wrapper col-auto p-0">
-      <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
-      <div class="logo-header-main"><a href="index.html"><img class="img-fluid for-light img-100" src="../assets/images/logo/logo2.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt=""></a></div>
-    </div> --}}
-    {{-- <div class="left-header col horizontal-wrapper ps-0">
-      <div class="left-menu-header">
-        <ul class="app-list">
-          <li class="onhover-dropdown">
-            <div class="app-menu"> <i data-feather="folder-plus"></i></div>
-            <ul class="onhover-show-div left-dropdown">
-              <li> <a href="file-manager.html">File Manager</a></li>
-              <li> <a href="kanban.html"> Kanban board</a></li>
-              <li> <a href="social-app.html"> Social App</a></li>
-              <li> <a href="bookmark.html"> Bookmark</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="header-left">
-          <li class="onhover-dropdown"><span class="f-w-600">Dashboard</span><span><i class="middle" data-feather="chevron-down"></i></span>
-            <ul class="onhover-show-div left-dropdown">
-              <li> <a href="index.html">Default</a></li>
-              <li> <a href="dashboard-02.html"> Ecommerce</a></li>
-            </ul>
-          </li>
-          <li class="onhover-dropdown"><span class="f-w-600">Application</span><span><i class="middle" data-feather="chevron-down"></i></span>
-            <ul class="onhover-show-div left-dropdown">
-              <li class="flyout-right"><a href="javascript:void(0)">Project</a>
-                <ul>
-                  <li> <a href="projects.html">Project List</a></li>
-                  <li> <a href="projectcreate.html">Project Create</a></li>
-                </ul>
-              </li>
-              <li><a href="file-manager.html">File manager</a></li>
-              <li><a href="kanban.html">kanban</a></li>
-              <li class="flyout-right"><a href="javascript:void(0)">Ecommerce</a>
-                <ul>
-                  <li> <a href="product.html">Product</a></li>
-                  <li> <a href="product-page.html">Product Page</a></li>
-                  <li> <a href="list-products.html">Product List</a></li>
-                  <li> <a href="payment-details.html">Payment Details</a></li>
-                  <li> <a href="order-history.html">Order History</a></li>
-                  <li> <a href="invoice-template.html">Invoice</a></li>
-                  <li> <a href="cart.html">Cart</a></li>
-                  <li> <a href="list-wish.html">Wishlist</a></li>
-                  <li> <a href="checkout.html">Checkout</a></li>
-                  <li> <a href="pricing.html">Pricing </a></li>
-                </ul>
-              </li>
-              <li class="flyout-right"><a href="javascript:void(0)">Email</a>
-                <ul>
-                  <li> <a href="email_inbox.html">Mail Inbox</a></li>
-                  <li> <a href="email_read.html">Read Mail</a></li>
-                  <li> <a href="email_compose.html">Compose</a></li>
-                </ul>
-              </li>
-              <li class="flyout-right"><a href="javascript:void(0)">Chat</a>
-                <ul>
-                  <li> <a href="chat.html">Chat App</a></li>
-                  <li> <a href="chat-video.html">Video Chat</a></li>
-                </ul>
-              </li>
-              <li class="flyout-right"><a href="javascript:void(0)">Users</a>
-                <ul>
-                  <li> <a href="user-profile.html">User Profile</a></li>
-                  <li> <a href="edit-profile.html">Users Edit</a></li>
-                  <li> <a href="user-cards.html">User Cards</a></li>
-                </ul>
-              </li>
-              <li><a href="bookmark.html">Bookmarks</a></li>
-              <li><a href="contacts.html">Contacts</a></li>
-              <li><a href="social-app.html">Social App</a></li>
-            </ul>
-          </li>
-          <li class="onhover-dropdown"> <span class="f-w-600">More pages</span><span><i class="middle" data-feather="chevron-down"></i></span>
-            <ul class="onhover-show-div left-dropdown">
-              <li><a href="landing-page.html">Landing Page</a></li>
-              <li><a href="sample-page.html">Sample Page</a></li>
-              <li><a href="internationalization.html">Internationalization</a></li>
-              <li class="flyout-right"><a href="javascript:void(0)">Starter-Kit</a>
-                <ul>
-                  <li class="flyout-right"><a href="javascript:void(0)">Color version</a>
-                    <ul>
-                      <li> <a href="starter-kit/index.html">Layout Light</a></li>
-                      <li> <a href="starter-kit/layout-dark.html">Layout Dark</a></li>
-                    </ul>
-                  </li>
-                  <li class="flyout-right"><a href="javascript:void(0)">Page Layout</a>
-                    <ul>
-                      <li> <a href="starter-kit/boxed.html">Boxed</a></li>
-                      <li> <a href="starter-kit/layout-rtl.html">RTL</a></li>
-                    </ul>
-                  </li>
-                  <li> <a href="starter-kit/hide-on-scroll.html">Hide Menu On Scroll</a></li>
-                  <li class="flyout-right"><a href="javascript:void(0)">Footers</a>
-                    <ul>
-                      <li> <a href="starter-kit/footer-light.html">Footer Light</a></li>
-                      <li> <a href="starter-kit/footer-dark.html">Footer Dark </a></li>
-                      <li> <a href="starter-kit/footer-fixed.html">Footer Fixed</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div> --}}
-    {{-- <div class="nav-right col-6 pull-right right-header p-0">
-      <ul class="nav-menus">
-        <li>
-          <div class="right-header ps-0">
-            <div class="input-group">
-              <div class="input-group-prepend"><span class="input-group-text mobile-search"><i class="fa fa-search"></i></span></div>
-              <input class="form-control" type="text" placeholder="Search Here........">
-            </div>
-          </div>
-        </li>
-        <li class="serchinput">
-          <div class="serchbox"><i data-feather="search"></i></div>
-          <div class="form-group search-form">
-            <input type="text" placeholder="Search here...">
-          </div>
-        </li>
-        <li>
-          <div class="mode"><i class="fa fa-moon-o"></i></div>
-        </li>
-        <li class="onhover-dropdown">
-          <div class="notification-box"><i data-feather="bell"></i></div>
-          <ul class="notification-dropdown onhover-show-div">
-            <li><i data-feather="bell">            </i>
-              <h6 class="f-18 mb-0">Notitications</h6>
-            </li>
-            <li>
-              <div class="d-flex align-items-center">
-                <div class="flex-shrink-0"><i data-feather="truck"></i></div>
-                <div class="flex-grow-1">
-                  <p><a href="order-history.html">Delivery processing </a><span class="pull-right">6 hr</span></p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex align-items-center">
-                <div class="flex-shrink-0"><i data-feather="shopping-cart"></i></div>
-                <div class="flex-grow-1">
-                  <p><a href="cart.html">Order Complete</a><span class="pull-right">3 hr</span></p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex align-items-center">
-                <div class="flex-shrink-0"><i data-feather="file-text"></i></div>
-                <div class="flex-grow-1">
-                  <p><a href="invoice-template.html">Tickets Generated</a><span class="pull-right">1 hr</span></p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex align-items-center">
-                <div class="flex-shrink-0"><i data-feather="send"></i></div>
-                <div class="flex-grow-1">
-                  <p><a href="email_inbox.html">Delivery Complete</a><span class="pull-right">45 min</span></p>
-                </div>
-              </div>
-            </li>
-            <li><a class="btn btn-primary" href="javascript:void(0)">Check all notification</a></li>
-          </ul>
-        </li>
-        <li class="onhover-dropdown">
-          <div class="message"><i data-feather="message-square"></i></div>
-          <ul class="message-dropdown onhover-show-div">
-            <li><i data-feather="message-square">            </i>
-              <h6 class="f-18 mb-0">Messages</h6>
-            </li>
-            <li>
-              <div class="d-flex align-items-start">
-                <div class="message-img bg-light-primary"><img src="../assets/images/user/3.jpg" alt=""></div>
-                <div class="flex-grow-1">
-                  <h5 class="mb-1"><a href="email_inbox.html">Emay Walter</a></h5>
-                  <p>Do you want to go see movie?</p>
-                </div>
-                <div class="notification-right"><i data-feather="x"></i></div>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex align-items-start">
-                <div class="message-img bg-light-primary"><img src="../assets/images/user/6.jpg" alt=""></div>
-                <div class="flex-grow-1">
-                  <h5 class="mb-1"><a href="email_inbox.html">Jason Borne</a></h5>
-                  <p>Thank you for rating us.</p>
-                </div>
-                <div class="notification-right"><i data-feather="x"></i></div>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex align-items-start">
-                <div class="message-img bg-light-primary"><img src="../assets/images/user/10.jpg" alt=""></div>
-                <div class="flex-grow-1">
-                  <h5 class="mb-1"><a href="email_inbox.html">Sarah Loren</a></h5>
-                  <p>What`s the project report update?</p>
-                </div>
-                <div class="notification-right"><i data-feather="x"></i></div>
-              </div>
-            </li>
-            <li><a class="btn btn-primary" href="email_inbox.html">Check Messages</a></li>
-          </ul>
-        </li>
-        <li class="maximize"><a href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
-        <li class="language-nav">
-          <div class="translate_wrapper">
-            <div class="current_lang">
-              <div class="lang"><i data-feather="globe"></i></div>
-            </div>
-            <div class="more_lang">
-              <div class="lang selected" data-value="en"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">English<span> (US)</span></span></div>
-              <div class="lang" data-value="de"><i class="flag-icon flag-icon-de"></i><span class="lang-txt">Deutsch</span></div>
-              <div class="lang" data-value="es"><i class="flag-icon flag-icon-es"></i><span class="lang-txt">Espa&ntilde;ol</span></div>
-              <div class="lang" data-value="fr"><i class="flag-icon flag-icon-fr"></i><span class="lang-txt">Fran&ccedil;ais</span></div>
-              <div class="lang" data-value="pt"><i class="flag-icon flag-icon-pt"></i><span class="lang-txt">Portugu&ecirc;s<span> (BR)</span></span></div>
-              <div class="lang" data-value="cn"><i class="flag-icon flag-icon-cn"></i><span class="lang-txt">&#x7B80;&#x4F53;&#x4E2D;&#x6587;</span></div>
-              <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629; <span> (ae)</span></span></div>
-            </div>
-          </div>
-        </li>
-        <li class="profile-nav onhover-dropdown">
-          <div class="account-user"><i data-feather="user"></i></div>
-          <ul class="profile-dropdown onhover-show-div">
-            <li><a href="user-profile.html"><i data-feather="user"></i><span>Account</span></a></li>
-            <li><a href="email_inbox.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
-            <li><a href="edit-profile.html"><i data-feather="settings"></i><span>Settings</span></a></li>
-            <li><a href="login.html"><i data-feather="log-in"> </i><span>Log in</span></a></li>
-          </ul>
-        </li>
-      </ul>
-    </div> --}}
-    <script class="result-template" type="text/x-handlebars-template">
-      <div class="ProfileCard u-cf">
-      <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
-      <div class="ProfileCard-details">
-      </div>
-      </div>
-    </script>
-    <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
-  </div>
+
 @endsection
+

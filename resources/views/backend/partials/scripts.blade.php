@@ -1,3 +1,5 @@
+
+
 <script src="{{asset('/backend/assets/js/jquery-3.6.0.min.js')}}"></script>
 <!-- Bootstrap js-->
 <script src="{{asset('/backend/assets/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
@@ -8,8 +10,17 @@
 <script src="{{asset('/backend/assets/js/scrollbar/simplebar.js')}}"></script>
 <script src="{{asset('/backend/assets/js/scrollbar/custom.js')}}"></script>
 <!-- Sidebar jquery-->
+
+
 <script src="{{asset('/backend/assets/js/config.js')}}"></script>
 <script src="{{asset('/backend/assets/js/sidebar-menu.js')}}"></script>
+<script src="{{asset('/backend/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('/backend/assets/js/dropzone/dropzone.js')}}"></script>
+<script src="{{asset('/backend/assets/js/dropzone/dropzone-script.js')}}"></script>
+<script src="{{asset('/backend/assets/js/select2/select2.full.min.js')}}"></script>
+<script src="{{asset('/backend/assets/js/select2/select2-custom.js')}}"></script>
+<script src="{{asset('/backend/assets/js/email-app.js')}}"></script>
+<script src="{{asset('/backend/assets/js/form-validation-custom.js')}}"></script>
 <script src="{{asset('/backend/assets/js/chart/chartist/chartist.js')}}"></script>
 <script src="{{asset('/backend/assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
 <script src="{{asset('/backend/assets/js/chart/apex-chart/apex-chart.js')}}"></script>
@@ -33,6 +44,12 @@
 <script src="{{asset('/backend/assets/js/typeahead/typeahead.custom.js')}}"></script>
 <script src="{{asset('/backend/assets/js/typeahead-search/handlebars.js')}}"></script>
 <script src="{{asset('/backend/assets/js/typeahead-search/typeahead-custom.js')}}"></script>
+<script src="{{asset('/backend/assets/js/tooltip-init.js')}}"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script> --}}
 <!-- Template js-->
+
+<script src="{{asset('/backend/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
 <script src="{{asset('/backend/assets/js/script.js')}}"></script>
 <script src="{{asset('/backend/assets/js/theme-customizer/customizer.js')}}">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+@stack('scripts')

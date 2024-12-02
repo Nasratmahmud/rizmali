@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('days')->nullable()->comment('How long the trip is.');
             $table->string('valid')->nullable();
             $table->string('not_valid')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

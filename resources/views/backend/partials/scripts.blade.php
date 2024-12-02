@@ -10,7 +10,8 @@
 <script src="{{asset('/backend/assets/js/scrollbar/simplebar.js')}}"></script>
 <script src="{{asset('/backend/assets/js/scrollbar/custom.js')}}"></script>
 <!-- Sidebar jquery-->
-
+<script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
 
 <script src="{{asset('/backend/assets/js/config.js')}}"></script>
 <script src="{{asset('/backend/assets/js/sidebar-menu.js')}}"></script>
@@ -41,15 +42,27 @@
 <script src="{{asset('/backend/assets/js/notify/index.js')}}"></script>
 <script src="{{asset('/backend/assets/js/typeahead/handlebars.js')}}"></script>
 <script src="{{asset('/backend/assets/js/typeahead/typeahead.bundle.js')}}"></script>
-<script src="{{asset('/backend/assets/js/typeahead/typeahead.custom.js')}}"></script>
+{{-- <script src="{{asset('/backend/assets/js/typeahead/typeahead.custom.js')}}"></script> --}}
 <script src="{{asset('/backend/assets/js/typeahead-search/handlebars.js')}}"></script>
 <script src="{{asset('/backend/assets/js/typeahead-search/typeahead-custom.js')}}"></script>
 <script src="{{asset('/backend/assets/js/tooltip-init.js')}}"></script>
+{{-- <script src="{{asset('/backend/assets/js/toastr.min.js')}}"></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script> --}}
 <!-- Template js-->
+<!-- Toastr JS (add before </body>) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script src="{{asset('/backend/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
 <script src="{{asset('/backend/assets/js/script.js')}}"></script>
 <script src="{{asset('/backend/assets/js/theme-customizer/customizer.js')}}">  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
-@stack('scripts')
+
+@section('scripts')
+    @stack('scripts')
+@endsection
+
+
+
+
+
+

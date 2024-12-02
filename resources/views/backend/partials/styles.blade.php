@@ -8,7 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/flag-icon.css')}}">
     <!-- Feather icon-->
 
-    
+    <!-- Toastr CSS (add to the <head> section) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/feather-icon.css')}}">
@@ -19,12 +21,14 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/chartist.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/prism.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/vector-map.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/datatables.css')}}">
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/bootstrap.css')}}">
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/style.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/toast.css')}}"> --}}
     <link id="color" rel="stylesheet" href="{{asset('/backend/assets/css/color-1.css')}}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/responsive.css')}}">
-    @stack('style')
+    @stack('styles')
     

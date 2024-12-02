@@ -33,6 +33,7 @@
       <div class="page-wrapper compact-wrapper" id="pageWrapper">
           <div class="page-header">
               @include('backend.partials.header')
+                 
           </div>
             <div class="page-body-wrapper">
 

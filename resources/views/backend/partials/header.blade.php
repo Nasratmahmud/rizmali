@@ -1,3 +1,17 @@
+@if(session('t-success'))
+<script>
+    toastr.success("{{ session('t-success') }}");
+</script>
+@endif
+
+<!-- Check if there is an error message and display the error toast -->
+@if(session('t-error'))
+<script>
+    toastr.error("{{ session('t-error') }}");
+</script>
+@endif
+
+
 <div class="header-wrapper row m-0">
     <div class="header-logo-wrapper col-auto p-0">
       <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>

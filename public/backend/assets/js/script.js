@@ -167,6 +167,7 @@
     });
     
     //landing header //
+
     $(".toggle-menu").on('click', function (){
         $('.landing-menu').toggleClass('open');
     });   

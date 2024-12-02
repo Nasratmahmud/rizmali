@@ -28,7 +28,7 @@
           <div class="card profile-greeting">               
             <div class="card-body">
               <div class="d-sm-flex d-block justify-content-between">
-                <div class="flex-grow-1"> 
+                <d7iv class="flex-grow-1"> 
                   <div class="weather d-flex">
                     <h2 class="f-w-400"> <span>28<sup><i class="fa fa-circle-o f-10"></i></sup>C </span></h2>
                     <div class="span sun-bg"><i class="icofont icofont-sun font-primary"></i></div>

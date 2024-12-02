@@ -4,37 +4,36 @@
 
 @section('content')
 
-@push('style')
-<style>
-.upload-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed #ddd;
-    border-radius: 6px;
-    padding: 20px;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    height: 150px;
-    background-color: #f9f9f9;
-    color: #888;
-}
+@push('styles')
+    <style>
+        .upload-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+            border-radius: 6px;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            height: 150px;
+            background-color: #f9f9f9;
+            color: #888;
+        }
 
-.upload-box:hover {
-    background-color: #f1f1f1;
-}
-.remove-link {
-    color: #ff6b6b;
-    cursor: pointer;
-    text-decoration: underline;
-}
+        .upload-box:hover {
+            background-color: #f1f1f1;
+        }
+        .remove-link {
+            color: #ff6b6b;
+            cursor: pointer;
+            text-decoration: underline;
+        }
 
-.remove-link:hover {
-    color: #ff0000;
-}
-</style>
-    
+        .remove-link:hover {
+            color: #ff0000;
+        }
+    </style>
 @endpush
 
 <div class="container-fluid">
@@ -62,63 +61,72 @@
                 <div class="card-header pb-0">
                     <h4>Package Create</h4>
                 </div>
-                <form class=" row needs-validation" novalidate action="{{route('package.insert')}}" method="POST" enctype="multipart/form-data">
+                <form class=" row needs-validation" novalidate action="#" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body add-post">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="validationCustom01">Title:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="title" required>
+                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="title" value="{{$package->title}}">
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="form-group">
                                 <label for="validationCustom01">Tour Days:</label>
-                                <input class="form-control" name="days" type="number">
+                                <input class="form-control" name="days" type="number" value="{{$package->days}}">
                             </div>
                             <div class="form-group">
                                 <label for="validationCustom02">Valid Duration:</label>
                                     <div class="mb-3 row ">
-                                        <div class="mb-3 row col-sm-6">
-                                            <label class="col-sm-3 col-form-label">Start Date</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control digits" name="startValidDate" type="date" value="2021-01-01">
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="mb-3 row col-sm-6">
-                                            <label class="col-sm-3 col-form-label">End Date</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control digits" name="endValidDate" type="date" value="2021-01-01">
-                                            </div>
-                                        </div>
+                                        @foreach ($validDate as $key => $date )
+                                            @if ($key == 0)
+                                                <div class="mb-3 row col-sm-6">
+                                                    <label class="col-sm-3 col-form-label">Start Date</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control digits" name="startValidDate" type="date" value="{{$date}}">
+                                                    </div>
+                                                </div> 
+                                            @else
+                                                <div class="mb-3 row col-sm-6">
+                                                    <label class="col-sm-3 col-form-label">End Date</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control digits" name="endValidDate" type="date" value="{{$date}}">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                         @endforeach
                                     </div>
+                                
                                 <div class="valid-feedback">Validity period!</div>
                             </div>
                             <div class="form-group">
                                 <label for="validationCustom03">Invalid Duration:</label>
+                               
                                 <div class="mb-3 row ">
-                                    <div class="mb-3 row col-sm-6">
-                                        <label class="col-sm-3 col-form-label">Start Date</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control digits" name="startInvalidDate" type="date" value="2021-01-01">
-                                        </div>
-                                    </div>
-                                
-                                    <div class="mb-3 row col-sm-6">
-                                        <label class="col-sm-3 col-form-label">End Date</label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control digits" name="endInvalidDate" type="date" value="2021-01-01">
-                                        </div>
-                                    </div>
+                                    @foreach ($inValidDate as $date)
+                                            @if ($key == 0)
+                                                <div class="mb-3 row col-sm-6">
+                                                    <label class="col-sm-3 col-form-label">Start Date</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control digits" name="startValidDate" type="date" value="{{$date}}">
+                                                    </div>
+                                                </div> 
+                                            @else
+                                                <div class="mb-3 row col-sm-6">
+                                                    <label class="col-sm-3 col-form-label">End Date</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control digits" name="endValidDate" type="date" value="{{$date}}">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                    @endforeach
                                 </div>
                                 <div class="valid-feedback">Validity expired period!</div>
                             </div>
-
                             <div class="email-wrapper">
                                 <div class="theme-form">
                                     <div class="form-group">
                                         <label>Package Details:</label>
-                                        <textarea class="form-control" name="details" id="exampleFormControlTextarea4" placeholder="Package details." rows="3"></textarea>
+                                        <textarea class="form-control" name="details" id="exampleFormControlTextarea4" placeholder="Package details." rows="3">{{$package->details}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +134,7 @@
                                 <div class="theme-form">
                                     <div class="form-group">
                                     <label>Includes:</label>
-                                    <textarea class="form-control" name="includes" id="exampleFormControlTextarea4" placeholder="Include details on this package." rows="3"></textarea>
+                                    <textarea class="form-control" name="includes" id="exampleFormControlTextarea4" placeholder="Include details on this package." rows="3">{{$package->includes}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +142,7 @@
                                     <div class="theme-form">
                                         <div class="form-group">
                                         <label>Excludes:</label>
-                                        <textarea class="form-control" name="excludes" id="exampleFormControlTextarea4" placeholder="Exclude details on this package." rows="3"></textarea>
+                                        <textarea class="form-control" name="excludes" id="exampleFormControlTextarea4" placeholder="Exclude details on this package." rows="3">{{$package->excludes}}</textarea>
                                         </div>
                                     </div>
                             </div>
@@ -146,7 +154,7 @@
                                         <input id="mentor_avatar" name="photo" type="file" accept="image/*" style="display: none;" />
                                     </label>
                                     <div class="image-preview mt-3" id="image-preview-container" style="display: none;">
-                                        <img id="mentor-preview-image" src="" alt="Selected Image" style="max-width: 100px; max-height: 100px; border-radius: 6px;" />
+                                        <img id="mentor-preview-image" src="{{asset($package->photo)}}" alt="Selected Image" style="max-width: 100px; max-height: 100px; border-radius: 6px;" />
                                         <span class="remove-link" id="remove-mentor-photo">Remove</span>
                                     </div>
                                 </div>

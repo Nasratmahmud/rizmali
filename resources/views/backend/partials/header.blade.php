@@ -37,12 +37,13 @@
               <li> <a href="#"> Ecommerce</a></li>
             </ul>
           </li>
-          <li class="onhover-dropdown"><span class="f-w-600">Application</span><span><i class="middle" data-feather="chevron-down"></i></span>
+          <li class="onhover-dropdown"><span class="f-w-600">Package</span><span><i class="middle" data-feather="chevron-down"></i></span>
             <ul class="onhover-show-div left-dropdown">
-              <li class="flyout-right"><a href="javascript:void(0)">Project</a>
+              <li class="flyout-right"><a href="javascript:void(0)">Package</a>
                 <ul>
-                  <li> <a href="#">Project List</a></li>
-                  <li> <a href="#">Project Create</a></li>
+                  <li> <a href="#">Package List</a></li>
+                  <li> <a href="#">Package Create</a></li>
+                  <li> <a href="#">Package Edit</a></li>
                 </ul>
               </li>
               <li><a href="#">File manager</a></li>

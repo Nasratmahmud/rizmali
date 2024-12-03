@@ -140,16 +140,7 @@
                             </div>
                             <div class="mb-3 form-group">
                                 <label class="col-form-label" for="mentor_avatar">Tourist Place Photo:</label>
-                                <div class="">
-                                    <label for="mentor_avatar" class="upload-box">
-                                        <span id="upload-photo-text">Click to upload a photo</span>
-                                        <input id="mentor_avatar" name="photo" type="file" accept="image/*" style="display: none;" />
-                                    </label>
-                                    <div class="image-preview mt-3" id="image-preview-container" style="display: none;">
-                                        <img id="mentor-preview-image" src="" alt="Selected Image" style="max-width: 100px; max-height: 100px; border-radius: 6px;" />
-                                        <span class="remove-link" id="remove-mentor-photo">Remove</span>
-                                    </div>
-                                </div>
+                                <input type="file" name="photo" class="dropify" />
                             </div>
                             <div class="btn-showcase">
                                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -167,36 +158,16 @@
 @push('scripts')
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const imageInput = document.getElementById('mentor_avatar');
-        const previewContainer = document.getElementById('image-preview-container');
-        const previewImage = document.getElementById('mentor-preview-image');
-        const removeButton = document.getElementById('remove-mentor-photo');
-        const uploadText = document.getElementById('upload-photo-text');
-
-        imageInput.addEventListener('change', function () {
-            const file = this.files[0];
-
-            if (file) {
-                const fileReader = new FileReader();
-
-                fileReader.onload = function (e) {
-                    previewImage.src = e.target.result; // Set preview image source
-                    previewContainer.style.display = 'block'; // Show preview container
-                };
-
-                fileReader.readAsDataURL(file); // Read file as data URL
-                uploadText.innerText = 'Photo selected: ' + file.name;
-            }
-        });
-
-        removeButton.addEventListener('click', function () {
-            imageInput.value = ''; // Reset input value
-            previewImage.src = ''; // Clear preview image source
-            previewContainer.style.display = 'none'; // Hide preview container
-            uploadText.innerText = 'Click to upload a photo'; // Reset upload box text
-        });
+    $(document).ready(function() {
+    $('.dropify').dropify({
+        messages: {
+            'default': 'Drag and drop a file here or click',
+            'replace': 'Drag and drop or click to replace',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong appended.'
+        }
     });
+});
 </script>
 
 @endpush

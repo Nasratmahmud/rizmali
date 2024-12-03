@@ -10,11 +10,12 @@
 <script src="{{asset('/backend/assets/js/scrollbar/simplebar.js')}}"></script>
 <script src="{{asset('/backend/assets/js/scrollbar/custom.js')}}"></script>
 <!-- Sidebar jquery-->
-<script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-<script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
 
 <script src="{{asset('/backend/assets/js/config.js')}}"></script>
 <script src="{{asset('/backend/assets/js/sidebar-menu.js')}}"></script>
+<script src="{{asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/backend/assets/js/datatable/datatables/datatable.custom.js')}}"></script>
+<script src="{{asset('/backend/assets/js/tooltip-init.js')}}"></script>
 <script src="{{asset('/backend/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('/backend/assets/js/dropzone/dropzone.js')}}"></script>
 <script src="{{asset('/backend/assets/js/dropzone/dropzone-script.js')}}"></script>
@@ -50,6 +51,7 @@
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script> --}}
 <!-- Template js-->
 <!-- Toastr JS (add before </body>) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script src="{{asset('/backend/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
@@ -57,9 +59,9 @@
 <script src="{{asset('/backend/assets/js/theme-customizer/customizer.js')}}">  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 
-@section('scripts')
-    @stack('scripts')
-@endsection
+
+@stack('scripts')
+
 
 
 

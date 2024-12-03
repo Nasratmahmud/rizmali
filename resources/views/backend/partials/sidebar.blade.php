@@ -23,10 +23,10 @@
                 <li><a class="lan-5" href="#">Ecommerce</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="airplay"></i><span class="lan-6">Widgets</span></a>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span class="lan-6">Package</span></a>
               <ul class="sidebar-submenu">
-                <li><a href="#">General</a></li>
-                <li><a href="#">Chart</a></li>
+                <li><a href="{{route('package.view')}}">Package List</a></li>
+                <li><a href="{{route('package.create')}}">Package Create</a></li>
               </ul>
             </li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layout"></i><span class="lan-7">Page layout</span></a>

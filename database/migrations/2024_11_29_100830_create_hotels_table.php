@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('status', [0, 1])->default(1);
+            $table->enum('category', ['standard', 'superior'])->default('standard');
             $table->timestamps();
             $table->softDeletes();
         });

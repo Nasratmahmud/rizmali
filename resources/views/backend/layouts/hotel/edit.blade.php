@@ -40,7 +40,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Add Package</h3>
+                <h3>Edit Hotel</h3>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb">
@@ -59,21 +59,41 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h4>Edit Hotel</h4>
+                    <h4>Hotel</h4>
                 </div>
                 <form class=" row needs-validation" novalidate action="{{route('hotel.update',['id' => $hotel->id ])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
                     <div class="card-body add-post">
+
                         <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="validationCustom01">Name:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="name" value="{{$hotel->name}}">
-                                <div class="valid-feedback">Looks good!</div>
-                            </div>
+                            <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="validationCustom01">Name:</label>
+                                        <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="name" value="{{$hotel->name}}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="">
+                                                <label for="">Hotel Status:</label>
+                                            </div>
+                                            <div class="animate-chk">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label class="d-block" for="edo-ani">
+                                                        <input class="radio_animated" id="edo-ani" type="radio" name="category" value="superior" {{$hotel->category == 'superior' ? 'checked' : ''}}>Superior Hotel
+                                                        </label>
+                                                        <label class="d-block" for="edo-ani1">
+                                                        <input class="radio_animated" id="edo-ani1" type="radio" name="category" value="standard" {{$hotel->category == 'standard' ? 'checked' : ''}}>Standard Hotel
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
                             <div class="btn-showcase">
                                 <button class="btn btn-primary" type="submit">Submit</button>
-                            </div>
+                            </div>-
                         </div>
                     </div>
                 </form>

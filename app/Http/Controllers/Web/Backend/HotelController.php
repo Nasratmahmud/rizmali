@@ -12,7 +12,11 @@ class HotelController extends Controller
 {
     //
 
-    public function create(Request $request){
+    public function create(){
+        return view('backend.layouts.hotel.create');
+    }
+
+    public function insert(Request $request){
 
         $validator = Validator::make($request->all(),[
             'name' => 'required|string',
@@ -25,15 +29,18 @@ class HotelController extends Controller
         try{
             $hotel  = new Hotel;
             $hotel->name = $request->name;
+            $hotel->category = $request->category;
             $hotel->save();
 
             toastr()->closeButton()->preventDuplicates()->progressBar()->timeOut(3000)->addSuccess('Successfully create a hotel.');
+            return redirect()->route('hotel.create');
             
         }catch(Exception $e){
             toastr()->closeButton()->preventDuplicates()->progressBar()->timeOut(1000)->addError('Problem found to create a hotel.');
         }
 
     }
+
 
     public function edit($id){
         $hotel = Hotel::findOrFail($id);
@@ -55,10 +62,11 @@ class HotelController extends Controller
         try{
             $hotel  = Hotel::findOrFail($id);
             $hotel->name = $request->name;
+            $hotel->category = $request->category;
             $hotel->save();
 
             toastr()->closeButton()->preventDuplicates()->progressBar()->timeOut(3000)->addSuccess('Successfully updated the hotel.');
-            
+            return redirect()->route('hotel.view');
         }catch(Exception $e){
             toastr()->closeButton()->preventDuplicates()->progressBar()->timeOut(1000)->addError('Problem found to updated the hotel.');
         }

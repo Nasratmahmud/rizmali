@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Hotel')
+@section('title','Package')
 
 @section('content')
 <div class="container-fluid">
@@ -12,8 +12,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item">Data Table</li>
-            <li class="breadcrumb-item active">Hotel List</li>
+            <li class="breadcrumb-item">Package Price Table</li>
           </ol>
         </div>
       </div>
@@ -24,27 +23,37 @@
         <div class="col-sm-12">
             <div class="card">
             <div class="card-header pb-0">
-                {{-- <h4>Zero Configuration</h4><span>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function:<code>$().DataTable();</code>.</span><span>Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</span> --}}
+                <h4>Zero Configuration</h4><span>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function:<code>$().DataTable();</code>.</span><span>Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</span>
             </div>
             <div class="card-body">
                 <div class="table-responsive theme-scrollbar">
                 <table class="display" id="basic-1">
                     <thead>
                     <tr>
+                        <th>Package</th>
                         <th>Hotel</th>
-                        <th>Hotel Category</th>
+                        <th>1 Person Price</th>
+                        <th>2 Person Price</th>
+                        <th>4 Person Price</th>
+                        <th>6 Person Price</th>
+                        <th>8 Person Price</th>
                         <th>#</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($hotels as $hotel)
+                        @foreach ($packagePrices as $packagePrice)
                         <tr>
-                            <td>{{$hotel->name}}</td>
-                            <td>{{$hotel->category}}</td>
+                            <td>{{$packagePrice->package->title}}</td>
+                            <td>{{$packagePrice->hotel->name}}</td>
+                            <td>{{$packagePrice->person_1_price}}</td>
+                            <td>{{$packagePrice->person_2_price}}</td>
+                            <td>{{$packagePrice->person_4_price}}</td>
+                            <td>{{$packagePrice->person_6_price}}</td>
+                            <td>{{$packagePrice->person_8_price}}</td>
                             <td> 
                             <ul class="action"> 
-                                <li class="edit" > <a href="{{route('hotel.edit',['id' => $hotel->id])}}" class=""><i class="icon-pencil-alt"></i></a></li>
-                                <li class="delete delete-btn" data-id="{{ $hotel->id }}"><a href="#"><i class="icon-trash"></i></a></li>
+                                <li class="edit"> <a href="{{route('package.price.edit',['id' => $packagePrice->id])}}"><i class="icon-pencil-alt"></i></a></li>
+                                <li class="delete delete-btn" data-id="{{ $packagePrice->id }}"><a href="#"><i class="icon-trash"></i></a></li>
                             </ul>
                             </td>
                         </tr>
@@ -62,7 +71,6 @@
 @push('scripts')
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function() {
@@ -85,7 +93,7 @@
     
     function deleteItem(itemId) {
       
-        fetch(`/hotel/delete/${itemId}`, {
+        fetch(`/packagePrice/delete/${itemId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -106,6 +114,5 @@
         });
     }
 </script>
-
 
 @endpush

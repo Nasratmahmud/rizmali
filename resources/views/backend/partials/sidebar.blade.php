@@ -23,53 +23,32 @@
                 <li><a class="lan-5" href="#">Ecommerce</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span class="lan-6">Package</span></a>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span class="">Package</span></a>
               <ul class="sidebar-submenu">
                 <li><a href="{{route('package.view')}}">Package List</a></li>
                 <li><a href="{{route('package.create')}}">Package Create</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layout"></i><span class="lan-7">Page layout</span></a>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layout"></i><span class="">Hotel</span></a>
               <ul class="sidebar-submenu">
-                <li><a href="#">Boxed</a></li>
-                <li><a href="#">RTL</a></li>
-                <li><a href="#">Dark Layout</a></li>
-                <li><a href="#">Hide Nav Scroll</a></li>
-                <li><a href="#">Footer Light</a></li>
-                <li><a href="#">Footer Dark</a></li>
-                <li><a href="#">Footer Fixed</a></li>
+                <li><a href="{{route('hotel.view')}}">Hotel List</a></li>
+                <li><a href="{{route('hotel.create')}}">Hotel Create</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="box"></i><span>Project</span></a>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span class="">Prime Destination</span></a>
               <ul class="sidebar-submenu">
-                <li><a href="#">Project List</a></li>
-                <li><a href="#">Create new</a></li>
+                <li><a href="{{route('prime.destinations.view')}}">Destination List</a></li>
+                <li><a href="{{route('prime.destinations.create')}}">Destination Create</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span class="">Package Price</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('package.price.view')}}">Package Price List</a></li>
+                <li><a href="{{route('package.price.create')}}">Package Price Create</a></li>
               </ul>
             </li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="monitor"> </i><span>kanban Board</span></a></li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span>Ecommerce</span></a>
-              <ul class="sidebar-submenu">
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Product page</a></li>
-                <li><a href="#">Add Product</a></li>
-                <li><a href="#">Product list</a></li>
-                <li><a href="#">Payment Details</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Invoice</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <li><a href="#">Checkout</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="mail"></i><span>Email</span></a>
-              <ul class="sidebar-submenu">
-                <li><a href="#">Mail Inbox</a></li>
-                <li><a href="#">Read mail</a></li>
-                <li><a href="#">Compose</a></li>
-              </ul>
-            </li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="message-circle"></i><span>Chat</span></a>
               <ul class="sidebar-submenu">
                 <li><a href="#">Chat App</a></li>
@@ -90,85 +69,7 @@
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="zap"> </i><span>Social App</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="clock"> </i><span>To-Do</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="search"> </i><span>Search Result</span></a></li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="file-text"></i><span>Forms</span></a>
-              <ul class="sidebar-submenu">
-                <li><a class="submenu-title" href="javascript:void(0)">Form Controls<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="#">Form Validation</a></li>
-                    <li><a href="#">Base Inputs</a></li>
-                    <li><a href="#">Checkbox & Radio</a></li>
-                    <li><a href="#">Input Groups</a></li>
-                    <li><a href="#">Mega Options</a></li>
-                  </ul>
-                </li>
-                <li><a class="submenu-title" href="javascript:void(0)">Form Widgets<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="#">Datepicker</a></li>
-                    <li><a href="#">Timepicker</a></li>
-                    <li><a href="#">Datetimepicker</a></li>
-                    <li><a href="#">Daterangepicker</a></li>
-                    <li><a href="#">Touchspin</a></li>
-                    <li><a href="#">Select2</a></li>
-                    <li><a href="#">Switch</a></li>
-                    <li><a href="#">Typeahead</a></li>
-                    <li><a href="#">Clipboard</a></li>
-                  </ul>
-                </li>
-                <li><a class="submenu-title" href="javascript:void(0)">Form layout<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="#">Default Forms</a></li>
-                    <li><a href="#">Form Wizard 1</a></li>
-                    <li><a href="#">Form Wizard 2</a></li>
-                    <li><a href="#">Form Wizard 3</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="server"></i><span>Tables</span></a>
-              <ul class="sidebar-submenu">
-                <li><a class="submenu-title" href="javascript:void(0)">Bootstrap Tables<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="#">Basic Tables</a></li>
-                    <li><a href="#">Table components</a></li>
-                  </ul>
-                </li>
-                <li><a class="submenu-title" href="javascript:void(0)">Data Tables<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="#">Basic Table</a></li>
-                    <li><a href="#">Advance Init</a></li>
-                    <li><a href="#">Data API </a></li>
-                    <li><a href="#">Data Source</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Ex. Data Table</a></li>
-                <li><a href="#">Js Grid Table</a></li>
-              </ul>
-            </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="box"></i><span>Ui Kits</span></a>
-              <ul class="sidebar-submenu">
-                <li><a href="#">Typography</a></li>
-                <li><a href="#">Avatars</a></li>
-                <li><a href="#">helper classes</a></li>
-                <li><a href="#">Grid</a></li>
-                <li><a href="#">Tag & pills</a></li>
-                <li><a href="#">Progress</a></li>
-                <li><a href="#">Modal</a></li>
-                <li><a href="#">Alert</a></li>
-                <li><a href="#">Popover</a></li>
-                <li><a href="#">Tooltip</a></li>
-                <li><a href="#">Spinners</a></li>
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Accordion</a></li>
-                <li><a class="submenu-title" href="javascript:void(0)">Tabs<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                  <ul class="nav-sub-childmenu submenu-content">
-                    <li><a href="tab-bootstrap.html">Bootstrap Tabs</a></li>
-                    <li><a href="tab-material.html">Line Tabs</a></li>
-                  </ul>
-                </li>
-                <li><a href="box-shadow.html">Shadow</a></li>
-                <li><a href="list.html">Lists</a></li>
-              </ul>
-            </li>
+            
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="cast"> </i><span>Landing page</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="file-text"> </i><span>Sample page</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="globe"> </i><span>Internationalize</span></a></li>

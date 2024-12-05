@@ -91,7 +91,6 @@ class PackageController extends Controller
         }
 
         try{
-
             $package = Package::findOrFail($id);
                 $package->title	= $request->title;
                 $package->details = $request->details;
@@ -132,11 +131,9 @@ class PackageController extends Controller
         $package = Package::findOrFail($id);
 
         if ($package) {
-
             $package->delete();
             unlink($package->photo);
             return response()->json(['success' => true]);
-
         }
 
         return response()->json(['success' => false], 404);

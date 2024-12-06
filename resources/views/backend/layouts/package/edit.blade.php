@@ -68,7 +68,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="validationCustom01">Title:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="title" value="{{$package->title}}">
+                                <input class="form-control" id="validationCustom01" type="text" placeholder="" name="title" value="{{$package->title}}">
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="form-group">

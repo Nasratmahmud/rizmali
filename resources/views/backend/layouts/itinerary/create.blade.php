@@ -24,7 +24,6 @@
     </div>
 </div>
 
-<!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -38,67 +37,45 @@
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="validationCustom04">Package:</label>
-                                    <select class="form-select" id="validationCustom04" name='package' required="">
-                                      <option selected="" disabled="" value="">Choose a Package</option>
-                                        @foreach ($packages as $package)
-                                            <option value="{{ $package->id }}">{{$package->title}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label class="form-label" for="packageSelect">Package:</label>
+                                        <select class="form-select" id="packageSelect" name='package_id' required="">
+                                                <option selected="" disabled="" value="">Choose a Package</option>
+                                            @foreach ($packages as $package)
+                                                <option value="{{ $package->id }}">{{$package->title}}</option>
+                                            @endforeach
+                                        </select>
                                     <div class="invalid-feedback">Please select a valid package.</div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="validationCustom04">Hotel:</label>
-                                    <select class="form-select" id="validationCustom04" name="hotel" required="">
-                                      <option selected="" disabled="" value="" >Choose a Hotel</option>
-                                        @foreach ($hotels as $hotel)
-                                            <option value="{{ $hotel->id }}">{{$hotel->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label class="form-label" for="validationCustom02">Hotel:</label>
+                                        <select class="form-select" id="validationCustom02" name="hotel_id" required="">
+                                                <option selected="" disabled="" value="" >Choose a Hotel</option>
+                                            @foreach ($hotels as $hotel)
+                                                <option value="{{ $hotel->id }}">{{$hotel->name}}</option>
+                                            @endforeach
+                                        </select>
                                     <div class="invalid-feedback">Please select a valid hotel.</div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="form-label" for="validationCustom04">Days:</label>
-                                    <select class="form-select" id="validationCustom04" name="hotel" required="">
-                                      <option selected="" disabled="" value="" >Choose a Hotel</option>
-                                        @for ($i=1 ; $i <= $package->day ; $i++)
-                                            <option value="{{ $i }}">Day {{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    <div class="invalid-feedback">Please select a valid hotel.</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="validationCustom02">Valid Duration:</label>
-                                    <div class="mb-3 row ">
-                                        <div class="mb-3 row col-sm-6">
-                                            <label class="col-sm-3 col-form-label">Start Date</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control digits" name="startValidDate" type="date" value="2021-01-01">
-                                            </div>
-                                        </div>
+                                {{-- <div class="form-group col-md-6">
+                                    @if (isset($packageDay))
+                                       <label class="form-label" id="days" for="days">Days:{{$packageDay->days}}</label>
+                                    @endif
                                     
-                                        <div class="mb-3 row col-sm-6">
-                                            <label class="col-sm-3 col-form-label">End Date</label>
-                                            <div class="col-sm-9">
-                                                <input class="form-control digits" name="endValidDate" type="date" value="2021-01-01">
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="valid-feedback">Validity period!</div>
+                                    <input type="text" id="days" class="form-control" readonly>
+                                </div> --}}
                             </div>
                             <div class="form-group">
-                                <label for="validationCustom01">Title:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="title" required>
+                                <label for="validationCustom04">Day Plan:</label>
+                                <input class="form-control" id="validationCustom04" type="text" placeholder="" name="day_ways_detail" required>
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="form-group">
-                                <label for="validationCustom01">Title:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="title" required>
+                                <label for="validationCustom05">Meal Plan:</label>
+                                <input class="form-control" id="validationCustom05" type="text" placeholder="" name="day_ways_meal" required>
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="mb-3 form-group">
-                                <label class="col-form-label" for="mentor_avatar">Tourist Place Photo:</label>
+                                <label class="col-form-label" for="mentor_avatar">Today Spot Photo:</label>
                                 <input type="file" name="photo" class="dropify" />
                             </div>
                             <div class="btn-showcase">
@@ -125,6 +102,24 @@
             'remove': 'Remove',
             'error': 'Ooops, something wrong appended.'
         }
+    });
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    jQuery('#packageSelect').change(function(){
+        let packageId = jQuery(this).val();
+        // alert(packageId);
+        jQuery.ajax({
+            url : '/itinerary/get-package-details',
+            type:'post',
+            data: 'package='+packageId+'&_token={{csrf_token()}}',
+            success:function(result){
+                jQuery('#days').html(result)
+            }
+        });
     });
 });
 </script>

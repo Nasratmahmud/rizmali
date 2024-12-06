@@ -4,17 +4,15 @@
 </script>
 @endif
 
-<!-- Check if there is an error message and display the error toast -->
 @if(session('t-error'))
 <script>
     toastr.error("{{ session('t-error') }}");
 </script>
 @endif
 
-
 <div class="header-wrapper row m-0">
     <div class="header-logo-wrapper col-auto p-0">
-      <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+      {{-- <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div> --}}
       <div class="logo-header-main"><a href="#"><img class="img-fluid for-light img-100" src="../assets/images/logo/logo2.png" alt=""><img class="img-fluid for-dark" src="{{asset('/backend/assets/images/logo/logo.png')}}" alt=""></a></div>
     </div>
     <div class="left-header col horizontal-wrapper ps-0">
@@ -30,8 +28,8 @@
             </ul>
           </li>
         </ul>
-        <ul class="header-left">
-          <li class="onhover-dropdown"><span class="f-w-600">Dashboard</span><span><i class="middle" data-feather="chevron-down"></i></span>
+        {{-- <ul class="header-left">
+          <li class="onhover-dropdown link-nav"><span class="f-w-600 "><a href="#">Dashboard</a></span><span><i class="middle" data-feather="chevron-down"></i></span>
             <ul class="onhover-show-div left-dropdown">
               <li> <a href="#">Default</a></li>
               <li> <a href="#"> Ecommerce</a></li>
@@ -118,7 +116,7 @@
               </li>
             </ul>
           </li>
-        </ul>
+        </ul> --}}
       </div>
     </div>
     <div class="nav-right col-6 pull-right right-header p-0">
@@ -137,10 +135,10 @@
             <input type="text" placeholder="Search here...">
           </div>
         </li>
-        <li>
+        {{-- <li>
           <div class="mode"><i class="fa fa-moon-o"></i></div>
-        </li>
-        <li class="onhover-dropdown">
+        </li> --}}
+        {{-- <li class="onhover-dropdown">
           <div class="notification-box"><i data-feather="bell"></i></div>
           <ul class="notification-dropdown onhover-show-div">
             <li><i data-feather="bell">            </i>
@@ -180,8 +178,8 @@
             </li>
             <li><a class="btn btn-primary" href="javascript:void(0)">Check all notification</a></li>
           </ul>
-        </li>
-        <li class="onhover-dropdown">
+        </li> --}}
+        {{-- <li class="onhover-dropdown">
           <div class="message"><i data-feather="message-square"></i></div>
           <ul class="message-dropdown onhover-show-div">
             <li><i data-feather="message-square">            </i>
@@ -219,9 +217,9 @@
             </li>
             <li><a class="btn btn-primary" href="#">Check Messages</a></li>
           </ul>
-        </li>
-        <li class="maximize"><a href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
-        <li class="language-nav">
+        </li> --}}
+        {{-- <li class="maximize"><a href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li> --}}
+        {{-- <li class="language-nav">
           <div class="translate_wrapper">
             <div class="current_lang">
               <div class="lang"><i data-feather="globe"></i></div>
@@ -236,14 +234,14 @@
               <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629; <span> (ae)</span></span></div>
             </div>
           </div>
-        </li>
+        </li> --}}
         <li class="profile-nav onhover-dropdown">
           <div class="account-user"><i data-feather="user"></i></div>
           <ul class="profile-dropdown onhover-show-div">
             <li><a href="#"><i data-feather="user"></i><span>Account</span></a></li>
-            <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
-            <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
-            <li><a href="#"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+            {{-- <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li> --}}
+            {{-- <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li> --}}
+            <li><a href="#"><i data-feather="log-in"> </i><span>Log out</span></a></li>
           </ul>
         </li>
       </ul>
@@ -256,5 +254,5 @@
       </div>
       </div>
     </script>
-    <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+    {{-- <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script> --}}
   </div>

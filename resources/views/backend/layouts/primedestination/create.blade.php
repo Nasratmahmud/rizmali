@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Package')
+@section('title','Prime Destination')
 
 @section('content')
 
@@ -39,14 +39,14 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="validationCustom01">Name:</label>
-                                <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="name">
+                                <input class="form-control" id="validationCustom01" type="text" placeholder="" name="name">
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="email-wrapper">
                                 <div class="theme-form">
                                     <div class="form-group">
                                         <label>Motto:</label>
-                                        <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="motto">
+                                        <input class="form-control" id="validationCustom01" type="text" placeholder="" name="motto">
                                     </div>
                                 </div>
                             </div>

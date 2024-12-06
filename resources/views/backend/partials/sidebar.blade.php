@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
     <div>
-      <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{{asset('/backend/assets/images/logo/logo.png')}}" alt=""></a>
+      <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="" alt=""></a>
         <div class="back-btn"><i data-feather="grid"></i></div>
         <div class="toggle-sidebar icon-box-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
       </div>
@@ -17,11 +17,8 @@
               <h6>Pinned</h6>
             </li>
             <hr>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="home"></i><span class="lan-3">Dashboard</span></a>
-              <ul class="sidebar-submenu">
-                <li><a class="lan-4" href="#">Default</a></li>
-                <li><a class="lan-5" href="#">Ecommerce</a></li>
-              </ul>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}"><i data-feather="home"></i><span class="lan-3">Dashboard</span></a>
+              
             </li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="shopping-bag"></i><span class="">Package</span></a>
               <ul class="sidebar-submenu">
@@ -47,7 +44,13 @@
                 <li><a href="{{route('package.price.create')}}">Package Price Create</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span class="">Itineray</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('itinerary.view')}}">Itinerary List</a></li>
+                <li><a href="{{route('itinerary.create')}}">Itinerary Create</a></li>
+              </ul>
+            </li>
+            {{-- <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="monitor"> </i><span>kanban Board</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="message-circle"></i><span>Chat</span></a>
               <ul class="sidebar-submenu">
@@ -154,7 +157,7 @@
                 <li><a href="#">Hover Effects</a></li>
               </ul>
             </li>
-            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="users"> </i><span>Support Ticket</span></a></li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="users"> </i><span>Support Ticket</span></a></li> --}}
           </ul>
         </div>
         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Prime Destination')
+@section('title','Package Price')
 
 @section('content')
 

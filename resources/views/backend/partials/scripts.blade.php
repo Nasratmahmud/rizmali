@@ -56,7 +56,7 @@
 
 <script src="{{asset('/backend/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
 <script src="{{asset('/backend/assets/js/script.js')}}"></script>
-<script src="{{asset('/backend/assets/js/theme-customizer/customizer.js')}}">  </script>
+{{-- <script src="{{asset('/backend/assets/js/theme-customizer/customizer.js')}}">  </script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 
 

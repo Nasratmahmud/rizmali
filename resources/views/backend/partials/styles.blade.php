@@ -1,8 +1,5 @@
 
 
-
-
-
      <link rel="icon" href="{{asset('/backend/assets/images/favicon/favicon.png')}}" type="image/x-icon">
      <link rel="shortcut icon" href="{{asset('/backend/assets/images/favicon/favicon.png')}}" type="image/x-icon">
 

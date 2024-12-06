@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Package;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Backend\HotelController;
 use App\Http\Controllers\Web\Backend\PackageController;
@@ -57,6 +58,7 @@ Route::prefix('/itinerary')->controller(ItineraryController::class)->group( func
     Route::get('/edit/{id}','edit')->name('itinerary.edit');
     Route::patch('/update/{id}','update')->name('itinerary.update');
     Route::delete('/delete/{id}','delete')->name('itinerary.delete');
+    Route::post('/get-package-details','packageDetail')->name('package.details');
 });
 
 

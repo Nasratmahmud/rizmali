@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Package')
+@section('title','Dashboard')
 
 @section('content')
 
@@ -51,7 +51,7 @@
                     <li class="dot-small bg-primary dot-7"></li>
                     <li class="semi-medium bg-primary dot-8"></li>
                     <li class="dot-big bg-info dot-9"></li>
-                  </ul><img class="img-fluid" src="{{asset('/backend/assets/images/dashboard/default/profile.png')}}" alt="">
+                  </ul><img class="img-fluid" src="{{asset('/backend/assets/images/dashboard/default/03.png')}}" width="100px" alt="">
                   <ul class="vector-image"> 
                     <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon1.png')}}" alt=""></li>
                     <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon3.png')}}" alt=""></li>
@@ -61,7 +61,7 @@
                     <li> <img src="{{asset('/backend/assets/images/dashboard/default/ribbon7.png')}}" alt=""></li>
                   </ul>
                 </div>
-                <h4><a href="user-profile.html"><span>Welcome Back</span> John  </a><span class="right-circle"><i class="fa fa-check-circle font-primary f-14 middle"></i></span></h4>
+                <h4><a href="user-profile.html"><span>Welcome Back</span> Rizmali  </a><span class="right-circle"><i class="fa fa-check-circle font-primary f-14 middle"></i></span></h4>
                 {{-- <div><span class="badge badge-primary">Your 5</span><span class="font-primary f-12 middle f-w-500 ms-2"> Task Is Pending</span></div> --}}
               </div>
             </div>

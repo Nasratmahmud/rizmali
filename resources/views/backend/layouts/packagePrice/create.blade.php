@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Package')
+@section('title','Package Price')
 
 @section('content')
 
@@ -17,7 +17,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Package Price</li>
+                    <li class="breadcrumb-item">Add Package Price</li>
                 </ol>
             </div>
         </div>

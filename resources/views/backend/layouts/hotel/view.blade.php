@@ -7,12 +7,12 @@
     <div class="page-title">
       <div class="row">
         <div class="col-sm-6">
-          <h3>Basic Table</h3>
+          <h3>Hotel</h3>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item">Data Table</li>
+            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"><i data-feather="home"></i></a></li>
+            {{-- <li class="breadcrumb-item">Data Table</li> --}}
             <li class="breadcrumb-item active">Hotel List</li>
           </ol>
         </div>

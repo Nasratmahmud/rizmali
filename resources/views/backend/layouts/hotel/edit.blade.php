@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title','Package')
+@section('title','Hotel')
 
 @section('content')
 
@@ -70,7 +70,7 @@
                             <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="validationCustom01">Name:</label>
-                                        <input class="form-control" id="validationCustom01" type="text" placeholder="Post Title" name="name" value="{{$hotel->name}}">
+                                        <input class="form-control" id="validationCustom01" type="text" placeholder="" name="name" value="{{$hotel->name}}">
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
                                     <div class="col-md-6">

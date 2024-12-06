@@ -1,4 +1,4 @@
-<footer class="footer">
+{{-- <footer class="footer">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 p-0 footer-left">
@@ -9,4 +9,25 @@
         </div>
       </div>
     </div>
+  </footer> --}}
+
+
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 p-0 footer-left">
+          <p class="mb-0">Copyright © <span id="current-year"></span> .</p>
+        </div>
+        <div class="col-md-6 p-0 footer-right">
+          <p class="mb-0">Made with <i class="fa fa-heart font-danger"></i></p>
+        </div>
+      </div>
+    </div>
   </footer>
+  
+  <script>
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  

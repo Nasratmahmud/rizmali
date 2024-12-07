@@ -50,6 +50,24 @@
                 <li><a href="{{route('itinerary.create')}}">Itinerary Create</a></li>
               </ul>
             </li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span class="">About Us</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('aboutus.view')}}">AboutUs List</a></li>
+                <li><a href="{{route('aboutus.create')}}">AboutUs Create</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span class="">Term & Condition</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('Term.view')}}">Term&condition List</a></li>
+                <li><a href="{{route('Term.create')}}">Term&condition Create</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span class="">Cancellation and Refund</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('refund.view')}}">Refund List</a></li>
+                <li><a href="{{route('refund.create')}}">Refund Create</a></li>
+              </ul>
+            </li>
             {{-- <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="monitor"> </i><span>kanban Board</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="message-circle"></i><span>Chat</span></a>

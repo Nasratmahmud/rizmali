@@ -2,8 +2,13 @@
 
 use App\Models\Package;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Backend\CMSController;
+use App\Http\Controllers\Web\Backend\TermController;
 use App\Http\Controllers\Web\Backend\HotelController;
+use App\Http\Controllers\Web\Backend\RefundController;
+use App\Http\Controllers\Web\Backend\AboutusController;
 use App\Http\Controllers\Web\Backend\PackageController;
+use App\Http\Controllers\Web\Backend\PrivacyController;
 use App\Http\Controllers\Web\Backend\DashboardController;
 use App\Http\Controllers\Web\Backend\ItineraryController;
 use App\Http\Controllers\Web\Backend\PackagePriceController;
@@ -60,5 +65,57 @@ Route::prefix('/itinerary')->controller(ItineraryController::class)->group( func
     Route::delete('/delete/{id}','delete')->name('itinerary.delete');
     Route::post('/get-package-details','packageDetail')->name('package.details');
 });
+
+
+Route::prefix('/cms')->controller(CMSController::class)->group( function () {
+    Route::get('/','show')->name('cms.view');
+    Route::get('/create', 'create')->name('cms.create');
+    Route::post('/insert', 'insert')->name('cms.insert');
+    Route::get('/edit/{id}','edit')->name('cms.edit');
+    Route::patch('/update/{id}','update')->name('cms.update');
+    Route::delete('/delete/{id}','delete')->name('cms.delete');
+});
+
+Route::prefix('/aboutus')->controller(AboutusController::class)->group( function () {
+    Route::get('/','show')->name('aboutus.view');
+    Route::get('/create', 'create')->name('aboutus.create');
+    Route::post('/insert', 'insert')->name('aboutus.insert');
+    Route::get('/edit/{id}','edit')->name('aboutus.edit');
+    Route::patch('/update/{id}','update')->name('aboutus.update');
+    Route::delete('/delete/{id}','delete')->name('aboutus.delete');
+});
+
+
+Route::prefix('/term&condition')->controller(TermController::class)->group( function () {
+    Route::get('/','show')->name('Term.view');
+    Route::get('/create', 'create')->name('Term.create');
+    Route::post('/insert', 'insert')->name('Term.insert');
+    Route::get('/edit/{id}','edit')->name('Term.edit');
+    Route::patch('/update/{id}','update')->name('Term.update');
+    Route::delete('/delete/{id}','delete')->name('Term.delete');
+});
+
+
+Route::prefix('/privacyPolicy')->controller(PrivacyController::class)->group( function () {
+    Route::get('/','show')->name('privacy.view');
+    Route::get('/create', 'create')->name('privacy.create');
+    Route::post('/insert', 'insert')->name('privacy.insert');
+    Route::get('/edit/{id}','edit')->name('privacy.edit');
+    Route::patch('/update/{id}','update')->name('privacy.update');
+    Route::delete('/delete/{id}','delete')->name('privacy.delete');
+});
+
+
+
+Route::prefix('/refund')->controller(RefundController::class)->group( function () {
+    Route::get('/','show')->name('refund.view');
+    Route::get('/create', 'create')->name('refund.create');
+    Route::post('/insert', 'insert')->name('refund.insert');
+    Route::get('/edit/{id}','edit')->name('refund.edit');
+    Route::patch('/update/{id}','update')->name('refund.update');
+    Route::delete('/delete/{id}','delete')->name('refund.delete');
+});
+
+
 
 

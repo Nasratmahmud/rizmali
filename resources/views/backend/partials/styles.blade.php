@@ -18,7 +18,9 @@
 
     <!-- Toastr CSS (add to the <head> section) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/simple-mde.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/feather-icon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/scrollbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/backend/assets/css/vendors/animate.css')}}">

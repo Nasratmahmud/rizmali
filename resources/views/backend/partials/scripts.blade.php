@@ -1,6 +1,8 @@
 
 
 <script src="{{asset('/backend/assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 <!-- Bootstrap js-->
 <script src="{{asset('/backend/assets/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
 <!-- feather icon js-->
@@ -13,6 +15,8 @@
 
 <script src="{{asset('/backend/assets/js/config.js')}}"></script>
 <script src="{{asset('/backend/assets/js/sidebar-menu.js')}}"></script>
+{{-- <script src="{{asset('/backend/assets/js/editor/simple-mde/simplemde.min.js')}}"></script>
+<script src="{{asset('/backend/assets/js/editor/simple-mde/simplemde.custom.js"></script> --}}
 <script src="{{asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('/backend/assets/js/datatable/datatables/datatable.custom.js')}}"></script>
 <script src="{{asset('/backend/assets/js/tooltip-init.js')}}"></script>

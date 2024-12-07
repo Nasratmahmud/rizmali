@@ -38,6 +38,23 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="packageSelect">Package:</label>
+                                    <select class="form-select" id="packageSelect" name='package_id' required="">
+                                        <option selected="" disabled="" value="">Choose a Package</option>
+                                        @foreach ($packages as $package)
+                                            <option value="{{ $package->id }}">{{ $package->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">Please select a valid package.</div>
+                                </div>
+                                
+                                <!-- Add a section to display the days -->
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" id="days" for="days">Days:</label>
+                                    <input type="text" id="days" class="form-control" readonly>
+                                </div>
+                                
+                                {{-- <div class="form-group col-md-6">
+                                    <label class="form-label" for="packageSelect">Package:</label>
                                         <select class="form-select" id="packageSelect" name='package_id' required="">
                                                 <option selected="" disabled="" value="">Choose a Package</option>
                                             @foreach ($packages as $package)
@@ -45,7 +62,7 @@
                                             @endforeach
                                         </select>
                                     <div class="invalid-feedback">Please select a valid package.</div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="validationCustom02">Hotel:</label>
                                         <select class="form-select" id="validationCustom02" name="hotel_id" required="">
@@ -56,19 +73,12 @@
                                         </select>
                                     <div class="invalid-feedback">Please select a valid hotel.</div>
                                 </div>
-                                {{-- <div class="form-group col-md-6">
-                                    @if (isset($packageDay))
-                                       <label class="form-label" id="days" for="days">Days:{{$packageDay->days}}</label>
-                                    @endif
-                                    
-                                    <input type="text" id="days" class="form-control" readonly>
-                                </div> --}}
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="validationCustom04">Day Plan:</label>
                                 <input class="form-control" id="validationCustom04" type="text" placeholder="" name="day_ways_detail" required>
                                 <div class="valid-feedback">Looks good!</div>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="validationCustom05">Meal Plan:</label>
                                 <input class="form-control" id="validationCustom05" type="text" placeholder="" name="day_ways_meal" required>
@@ -106,7 +116,7 @@
 });
 </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
     jQuery('#packageSelect').change(function(){
@@ -122,6 +132,39 @@ $(document).ready(function() {
         });
     });
 });
+</script> --}}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    jQuery('#packageSelect').change(function() {
+        let packageId = jQuery(this).val();
+        
+        
+        jQuery.ajax({
+            url: '/itinerary/get-package-details',
+            type: 'POST',
+            data: {
+                package: packageId, 
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(result) {
+               
+                if (result.days) {
+                    jQuery('#days').val(result.days); 
+                } else {
+                    
+                    jQuery('#days').val('Package not found');
+                }
+            },
+            error: function() {
+                
+                jQuery('#days').val('Error occurred while fetching data');
+            }
+        });
+    });
+});
 </script>
+
 
 @endpush

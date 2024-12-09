@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AboutusController extends Controller
 {
-    //
     public function create(){
         $aboutUs = CMS::where('status',1)->first();
         if($aboutUs != null){

@@ -63,7 +63,23 @@ Route::prefix('/itinerary')->controller(ItineraryController::class)->group( func
     Route::get('/edit/{id}','edit')->name('itinerary.edit');
     Route::patch('/update/{id}','update')->name('itinerary.update');
     Route::delete('/delete/{id}','delete')->name('itinerary.delete');
-    Route::post('/get-package-details','packageDetail')->name('package.details');
+    // Route::post('/get-package-details','packageDetail')->name('package.details');
+    Route::get('/get-package-details/{id}', function($id) {
+            $package = Package::find($id);
+            
+            if ($package) {
+                $days = $package->days;
+                return response()->json([
+                    'days' => $package->days,
+                    session(['days' => $package->days]),
+
+                ]);
+                
+            return response()->json(['days' => $package->days],200);
+                // return view('backend.layouts.itinerary.create', compact('days'));
+            }
+            return response()->json(['error' => 'Package not found'], 404);
+        });
 });
 
 

@@ -23,7 +23,9 @@
         </div>
     </div>
 </div>
-
+@if (isset($days))
+@dd($days)
+@endif
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -48,11 +50,6 @@
                                 </div>
                                 
                                 <!-- Add a section to display the days -->
-                                <div class="form-group col-md-6">
-                                    <label class="form-label" id="days" for="days">Days:</label>
-                                    <input type="text" id="days" class="form-control" readonly>
-                                </div>
-                                
                                 {{-- <div class="form-group col-md-6">
                                     <label class="form-label" for="packageSelect">Package:</label>
                                         <select class="form-select" id="packageSelect" name='package_id' required="">
@@ -69,16 +66,28 @@
                                                 <option selected="" disabled="" value="" >Choose a Hotel</option>
                                             @foreach ($hotels as $hotel)
                                                 <option value="{{ $hotel->id }}">{{$hotel->name}}</option>
+                                                
                                             @endforeach
                                         </select>
                                     <div class="invalid-feedback">Please select a valid hotel.</div>
                                 </div>
                             </div>
-                            {{-- <div class="form-group">
-                                <label for="validationCustom04">Day Plan:</label>
-                                <input class="form-control" id="validationCustom04" type="text" placeholder="" name="day_ways_detail" required>
-                                <div class="valid-feedback">Looks good!</div>
-                            </div> --}}
+                            <div class="form-group col-md-6">
+                                <label class="form-label" for="days">Days:</label>
+                                <input type="text" id="days" class="form-control" readonly>
+                            
+                                <p id="daysInfo">
+                                    <!-- Show the dropdown if the session has days -->
+                                    <select class="form-select" id="packageSelect" name="package_id" required="">
+                                        <option selected disabled value="">Choose a Package</option>
+                                        <option id="daysOption" value="" name="days">The number of days is: </option>
+                                    </select>
+                                </p>
+                            </div>
+                            
+                            
+                            
+                            
                             <div class="form-group">
                                 <label for="validationCustom05">Meal Plan:</label>
                                 <input class="form-control" id="validationCustom05" type="text" placeholder="" name="day_ways_meal" required>
@@ -98,7 +107,9 @@
         </div>
     </div>
 </div>
-
+    {{-- {{
+        session()->forget('days')
+    }} --}}
 @endsection
 
 @push('scripts')
@@ -116,55 +127,52 @@
 });
 </script>
 
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    jQuery('#packageSelect').change(function(){
-        let packageId = jQuery(this).val();
-        // alert(packageId);
-        jQuery.ajax({
-            url : '/itinerary/get-package-details',
-            type:'post',
-            data: 'package='+packageId+'&_token={{csrf_token()}}',
-            success:function(result){
-                jQuery('#days').html(result)
-            }
-        });
-    });
-});
-</script> --}}
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-    jQuery('#packageSelect').change(function() {
-        let packageId = jQuery(this).val();
-        
-        
-        jQuery.ajax({
-            url: '/itinerary/get-package-details',
-            type: 'POST',
-            data: {
-                package: packageId, 
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(result) {
-               
-                if (result.days) {
-                    jQuery('#days').val(result.days); 
-                } else {
+    $('#packageSelect').on('change', function() {
+        var packageId = $(this).val(); // Get the selected package ID
+
+        if (packageId) {
+            $.ajax({
+                url: '{{ url("/itinerary/get-package-details") }}/' + packageId, // Call the appropriate URL for package details
+                type: 'GET',
+                data: { packageId: packageId }, // Send the selected package ID as data
+                success: function(response) {
+                    var daysMessage = ""; 
                     
-                    jQuery('#days').val('Package not found');
+                    
+                    for (var i = 1; i <= response.days; i++) {
+                        daysMessage += "Day " + i + ": The number of days is: " + i + "\n"; 
+                    }
+
+                   
+                    $('#days').val(daysMessage); 
+
+                    
+                    $('#hiddenDays').val(response.days);
+
+                    
+                    $('#daysOption').text("The number of days is: " + daysMessage); 
+                    $('#daysOption').val(response.days); 
+                },
+                error: function() {
+                    alert('Failed to fetch package details.');
                 }
-            },
-            error: function() {
-                
-                jQuery('#days').val('Error occurred while fetching data');
-            }
-        });
+            });
+        }
     });
-});
 </script>
 
+
+
+
+<script>
+    $(document).ready(function() {
+        var days = '{{ session('days') }}';
+        if (days) {
+            $('#packageSelect2').val(days).trigger('change'); // Pre-select package and trigger the change event to update fields
+        }
+    });
+</script>
 
 @endpush

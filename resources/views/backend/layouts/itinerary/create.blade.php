@@ -48,49 +48,30 @@
                                     </select>
                                     <div class="invalid-feedback">Please select a valid package.</div>
                                 </div>
-                                
-                                <!-- Add a section to display the days -->
-                                {{-- <div class="form-group col-md-6">
-                                    <label class="form-label" for="packageSelect">Package:</label>
-                                        <select class="form-select" id="packageSelect" name='package_id' required="">
-                                                <option selected="" disabled="" value="">Choose a Package</option>
-                                            @foreach ($packages as $package)
-                                                <option value="{{ $package->id }}">{{$package->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    <div class="invalid-feedback">Please select a valid package.</div>
-                                </div> --}}
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="validationCustom02">Hotel:</label>
                                         <select class="form-select" id="validationCustom02" name="hotel_id" required="">
                                                 <option selected="" disabled="" value="" >Choose a Hotel</option>
                                             @foreach ($hotels as $hotel)
                                                 <option value="{{ $hotel->id }}">{{$hotel->name}}</option>
-                                                
                                             @endforeach
                                         </select>
                                     <div class="invalid-feedback">Please select a valid hotel.</div>
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="validationCustom05">Day:</label>
+                                    <input class="form-control" id="validationCustom05" type="number" placeholder="" name="day" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="validationCustom06">Meal Plan:</label>
+                                    <input class="form-control" id="validationCustom06" type="text" placeholder="" name="dayWaysMeal" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="days">Days:</label>
-                                <input type="text" id="days" class="form-control" readonly>
-                            
-                                <p id="daysInfo">
-                                    <!-- Show the dropdown if the session has days -->
-                                    <select class="form-select" id="packageSelect" name="package_id" required="">
-                                        <option selected disabled value="">Choose a Package</option>
-                                        <option id="daysOption" value="" name="days">The number of days is: </option>
-                                    </select>
-                                </p>
-                            </div>
-                            
-                            
-                            
-                            
                             <div class="form-group">
-                                <label for="validationCustom05">Meal Plan:</label>
-                                <input class="form-control" id="validationCustom05" type="text" placeholder="" name="day_ways_meal" required>
+                                <label for="validationCustom01">Day Plan:</label>
+                                <input class="form-control" id="validationCustom01" type="text" placeholder="" name="dayPlan" required>
                                 <div class="valid-feedback">Looks good!</div>
                             </div>
                             <div class="mb-3 form-group">
@@ -107,9 +88,6 @@
         </div>
     </div>
 </div>
-    {{-- {{
-        session()->forget('days')
-    }} --}}
 @endsection
 
 @push('scripts')
@@ -125,54 +103,6 @@
         }
     });
 });
-</script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $('#packageSelect').on('change', function() {
-        var packageId = $(this).val(); // Get the selected package ID
-
-        if (packageId) {
-            $.ajax({
-                url: '{{ url("/itinerary/get-package-details") }}/' + packageId, // Call the appropriate URL for package details
-                type: 'GET',
-                data: { packageId: packageId }, // Send the selected package ID as data
-                success: function(response) {
-                    var daysMessage = ""; 
-                    
-                    
-                    for (var i = 1; i <= response.days; i++) {
-                        daysMessage += "Day " + i + ": The number of days is: " + i + "\n"; 
-                    }
-
-                   
-                    $('#days').val(daysMessage); 
-
-                    
-                    $('#hiddenDays').val(response.days);
-
-                    
-                    $('#daysOption').text("The number of days is: " + daysMessage); 
-                    $('#daysOption').val(response.days); 
-                },
-                error: function() {
-                    alert('Failed to fetch package details.');
-                }
-            });
-        }
-    });
-</script>
-
-
-
-
-<script>
-    $(document).ready(function() {
-        var days = '{{ session('days') }}';
-        if (days) {
-            $('#packageSelect2').val(days).trigger('change'); // Pre-select package and trigger the change event to update fields
-        }
-    });
 </script>
 
 @endpush

@@ -11,4 +11,8 @@ class Hotel extends Model
     {
         return $this->hasOne(PackagePrice::class);
     }
+    public function itinerary()
+    {
+        return $this->hasOne(PackagePrice::class);
+    }
 }

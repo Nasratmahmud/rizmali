@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('day');
             $table->text('day_ways_detail');
             $table->string('day_ways_meal');
-            $table->string('day_ways_hotel');
             $table->string('day_ways_spot_photo');
             $table->unsignedBigInteger('hotel_id');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');

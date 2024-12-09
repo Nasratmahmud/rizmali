@@ -29,11 +29,11 @@
             <div class="card-body">
               <div class="d-sm-flex d-block justify-content-between">
                 <d7iv class="flex-grow-1"> 
-                  <div class="weather d-flex">
+                  {{-- <div class="weather d-flex">
                     <h2 class="f-w-400"> <span>28<sup><i class="fa fa-circle-o f-10"></i></sup>C </span></h2>
                     <div class="span sun-bg"><i class="icofont icofont-sun font-primary"></i></div>
-                  </div><span class="font-primary f-w-700">Sunny Day</span>
-                  <p>Beautiful Sunny Day Walk</p>
+                  </div><span class="font-primary f-w-700">Sunny Day</span> --}}
+                  <p>Beautiful Day</p>
                 </div>
                 <div class="badge-group">
                   <div class="badge badge-light-primary f-12"><i class="fa fa-clock-o"></i><span id="txt"></span></div>

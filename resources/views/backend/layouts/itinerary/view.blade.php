@@ -7,12 +7,12 @@
     <div class="page-title">
       <div class="row">
         <div class="col-sm-6">
-          <h3>Basic Table</h3>
+          <h3>Itinerary List</h3>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"><i data-feather="home"></i></a></li>
-            <li class="breadcrumb-item">Package Price Table</li>
+            <li class="breadcrumb-item">Itinerary Table</li>
           </ol>
         </div>
       </div>
@@ -23,7 +23,7 @@
         <div class="col-sm-12">
             <div class="card">
             <div class="card-header pb-0">
-                <h4>Zero Configuration</h4><span>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function:<code>$().DataTable();</code>.</span><span>Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</span>
+                {{-- <h4>Zero Configuration</h4><span>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function:<code>$().DataTable();</code>.</span><span>Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</span> --}}
             </div>
             <div class="card-body">
                 <div class="table-responsive theme-scrollbar">
@@ -32,28 +32,27 @@
                     <tr>
                         <th>Package</th>
                         <th>Hotel</th>
-                        <th>1 Person Price</th>
-                        <th>2 Person Price</th>
-                        <th>4 Person Price</th>
-                        <th>6 Person Price</th>
-                        <th>8 Person Price</th>
+                        <th>Day</th>
+                        <th>Full details of the day</th>
+                        <th>Detail about meal</th>
+                        <th>Spot photo</th>
                         <th>#</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($packagePrices as $packagePrice)
+                        @foreach ($itineraries as $Itinerary)
                         <tr>
-                            <td>{{$packagePrice->package->title}}</td>
-                            <td>{{$packagePrice->hotel->name}}</td>
-                            <td>{{$packagePrice->person_1_price}}</td>
-                            <td>{{$packagePrice->person_2_price}}</td>
-                            <td>{{$packagePrice->person_4_price}}</td>
-                            <td>{{$packagePrice->person_6_price}}</td>
-                            <td>{{$packagePrice->person_8_price}}</td>
+                            <td>{{$Itinerary->package->title}}</td>
+                            <td>{{$Itinerary->hotel->name}}</td>
+                            <td>{{$Itinerary->day}}</td>
+                            <td>{{$Itinerary->day_ways_detail}}</td>
+                            <td>{{$Itinerary->day_ways_meal}}</td>
+                            <td><img src="{{ asset($Itinerary->day_ways_spot_photo) }}" alt="Image" width="150px">
+                            </td>
                             <td> 
                             <ul class="action"> 
-                                <li class="edit"> <a href="{{route('package.price.edit',['id' => $packagePrice->id])}}"><i class="icon-pencil-alt"></i></a></li>
-                                <li class="delete delete-btn" data-id="{{ $packagePrice->id }}"><a href="#"><i class="icon-trash"></i></a></li>
+                                <li class="edit"> <a href="{{route('itinerary.edit',['id' => $Itinerary->id])}}"><i class="icon-pencil-alt"></i></a></li>
+                                <li class="delete delete-btn" data-id="{{ $Itinerary->id }}"><a href="#"><i class="icon-trash"></i></a></li>
                             </ul>
                             </td>
                         </tr>
@@ -93,7 +92,7 @@
     
     function deleteItem(itemId) {
       
-        fetch(`/packagePrice/delete/${itemId}`, {
+        fetch(`/itinerary/delete/${itemId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

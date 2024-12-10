@@ -95,7 +95,7 @@
                                 </div>
                             <div class="btn-showcase">
                                 <button class="btn btn-primary" type="submit">Submit</button>
-                            </div>-
+                            </div>
                         </div>
                     </div>
                 </form>

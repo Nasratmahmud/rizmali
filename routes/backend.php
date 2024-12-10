@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Package;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Backend\CMSController;
+use App\Http\Controllers\Web\Backend\BlogController;
 use App\Http\Controllers\Web\Backend\TermController;
 use App\Http\Controllers\Web\Backend\HotelController;
 use App\Http\Controllers\Web\Backend\RefundController;
@@ -14,9 +14,9 @@ use App\Http\Controllers\Web\Backend\ItineraryController;
 use App\Http\Controllers\Web\Backend\PackagePriceController;
 use App\Http\Controllers\Web\Backend\PrimeDestinationController;
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('admin.dashboard');
 
-Route::prefix('/package')->controller(PackageController::class)->group( function () {
+Route::prefix('/package')->controller(PackageController::class)->middleware(['auth'])->group( function () {
     Route::get('/','show')->name('package.view');
     Route::get('/create', 'create')->name('package.create');
     Route::post('/insert', 'insert')->name('package.insert');
@@ -26,7 +26,7 @@ Route::prefix('/package')->controller(PackageController::class)->group( function
 });
 
 
-Route::prefix('/hotel')->controller(HotelController::class)->group( function () {
+Route::prefix('/hotel')->controller(HotelController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('hotel.view');
     Route::get('/create', 'create')->name('hotel.create');
     Route::post('/insert', 'insert')->name('hotel.insert');
@@ -36,7 +36,7 @@ Route::prefix('/hotel')->controller(HotelController::class)->group( function () 
 });
 
 
-Route::prefix('/destination')->controller(PrimeDestinationController::class)->group( function () {
+Route::prefix('/destination')->controller(PrimeDestinationController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('prime.destinations.view');
     Route::get('/create', 'create')->name('prime.destinations.create');
     Route::post('/insert', 'insert')->name('prime.destinations.insert');
@@ -46,7 +46,7 @@ Route::prefix('/destination')->controller(PrimeDestinationController::class)->gr
 });
 
 
-Route::prefix('/packagePrice')->controller(PackagePriceController::class)->group( function () {
+Route::prefix('/packagePrice')->controller(PackagePriceController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('package.price.view');
     Route::get('/create', 'create')->name('package.price.create');
     Route::post('/insert', 'insert')->name('package.price.insert');
@@ -56,18 +56,17 @@ Route::prefix('/packagePrice')->controller(PackagePriceController::class)->group
 });
 
 
-Route::prefix('/itinerary')->controller(ItineraryController::class)->group( function () {
+Route::prefix('/itinerary')->controller(ItineraryController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('itinerary.view');
     Route::get('/create', 'create')->name('itinerary.create');
     Route::post('/insert', 'insert')->name('itinerary.insert');
     Route::get('/edit/{id}','edit')->name('itinerary.edit');
     Route::patch('/update/{id}','update')->name('itinerary.update');
     Route::delete('/delete/{id}','delete')->name('itinerary.delete');
- 
 });
 
 
-Route::prefix('/cms')->controller(CMSController::class)->group( function () {
+Route::prefix('/cms')->controller(CMSController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('cms.view');
     Route::get('/create', 'create')->name('cms.create');
     Route::post('/insert', 'insert')->name('cms.insert');
@@ -76,7 +75,8 @@ Route::prefix('/cms')->controller(CMSController::class)->group( function () {
     Route::delete('/delete/{id}','delete')->name('cms.delete');
 });
 
-Route::prefix('/aboutus')->controller(AboutusController::class)->group( function () {
+
+Route::prefix('/aboutus')->controller(AboutusController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('aboutus.view');
     Route::get('/create', 'create')->name('aboutus.create');
     Route::post('/insert', 'insert')->name('aboutus.insert');
@@ -86,7 +86,7 @@ Route::prefix('/aboutus')->controller(AboutusController::class)->group( function
 });
 
 
-Route::prefix('/term&condition')->controller(TermController::class)->group( function () {
+Route::prefix('/term&condition')->controller(TermController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('Term.view');
     Route::get('/create', 'create')->name('Term.create');
     Route::post('/insert', 'insert')->name('Term.insert');
@@ -96,7 +96,7 @@ Route::prefix('/term&condition')->controller(TermController::class)->group( func
 });
 
 
-Route::prefix('/privacyPolicy')->controller(PrivacyController::class)->group( function () {
+Route::prefix('/privacyPolicy')->controller(PrivacyController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('privacy.view');
     Route::get('/create', 'create')->name('privacy.create');
     Route::post('/insert', 'insert')->name('privacy.insert');
@@ -106,8 +106,7 @@ Route::prefix('/privacyPolicy')->controller(PrivacyController::class)->group( fu
 });
 
 
-
-Route::prefix('/refund')->controller(RefundController::class)->group( function () {
+Route::prefix('/refund')->controller(RefundController::class)->middleware('auth')->group( function () {
     Route::get('/','show')->name('refund.view');
     Route::get('/create', 'create')->name('refund.create');
     Route::post('/insert', 'insert')->name('refund.insert');
@@ -117,5 +116,13 @@ Route::prefix('/refund')->controller(RefundController::class)->group( function (
 });
 
 
+Route::prefix('/blog')->controller(BlogController::class)->middleware('auth')->group( function () {
+    Route::get('/','show')->name('blog.view');
+    Route::get('/create', 'create')->name('blog.create');
+    Route::post('/insert', 'insert')->name('blog.insert');
+    Route::get('/edit/{id}','edit')->name('blog.edit');
+    Route::patch('/update/{id}','update')->name('blog.update');
+    Route::delete('/delete/{id}','delete')->name('blog.delete');
+});
 
 

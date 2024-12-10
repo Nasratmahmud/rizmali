@@ -68,6 +68,12 @@
                 <li><a href="{{route('refund.create')}}">Refund Create</a></li>
               </ul>
             </li>
+            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="list"></i><span class="">Blog</span></a>
+              <ul class="sidebar-submenu">
+                <li><a href="{{route('blog.view')}}">Blog List</a></li>
+                <li><a href="{{route('blog.create')}}">Blog Create</a></li>
+              </ul>
+            </li>
             {{-- <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="#"><i data-feather="monitor"> </i><span>kanban Board</span></a></li>
             <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="message-circle"></i><span>Chat</span></a>

@@ -8,10 +8,6 @@ use App\Models\Hotel;
 use App\Models\Package;
 use App\Models\Itinerary;
 use Illuminate\Http\Request;
-
-
-use function Laravel\Prompts\alert;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
